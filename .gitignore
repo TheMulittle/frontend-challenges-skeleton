@@ -1,0 +1,15 @@
+*.tmp
+target
+resolution.properties
+
+# Logs
+logs
+*.log
+
+# ide files
+*.iml
+.idea
+.vscode
+
+# drivers
+*driver.exe
