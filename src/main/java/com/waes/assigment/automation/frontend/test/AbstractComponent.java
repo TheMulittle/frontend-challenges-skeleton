@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -26,7 +27,7 @@ public abstract class AbstractComponent {
     }
 
     public AbstractComponent waitUntilPageIsLoaded() {
-        WebDriverWait wait = new WebDriverWait(webDriverProvider.get(), DEFAULT_TIMEOUT_IN_SECONDS);
+        WebDriverWait wait = new WebDriverWait(webDriverProvider.get(), Duration.ofSeconds(DEFAULT_TIMEOUT_IN_SECONDS));
         wait.until(ExpectedConditions.visibilityOfAllElements(elementsToWait()));
         return this;
     }

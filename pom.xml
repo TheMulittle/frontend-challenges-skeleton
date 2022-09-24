@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <selenium.version>3.6.0</selenium.version>
+        <selenium.version>4.4.0</selenium.version>
         <jbehave.selenium.version>3.6-beta-2</jbehave.selenium.version>
         <jbehave.core.version>4.8.3</jbehave.core.version>
         <jbehave.selenium.version>3.5.5</jbehave.selenium.version>
@@ -19,13 +19,30 @@
         <jbehave.navigator.version>4.8.3</jbehave.navigator.version>
     </properties>
 
-    <dependencies>
+    <dependencyManagement>
+        <!-- Force Guava version to avoid clash between the versions coming from WebDriver manager and Selenium -->
+        <dependencies>
+            <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.0.1-jre</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
+
+    <dependencies>
         <!-- WebDriver -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Selenium -->
