@@ -1,27 +1,24 @@
 package com.waes.assigment.automation.frontend.test.steps;
 
 import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.When;
+import org.jbehave.web.selenium.WebDriverProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.waes.assigment.automation.frontend.test.pages.CommonPage;
 
 @Component
 public class BrowserSteps {
 
     @Autowired
-    CommonPage commonPage;
+    WebDriverProvider webDriverProvider;
 
-
-    @Given("I close the browser")
-    public void openBroswer() {
-        commonPage.keepSession();
-        commonPage.closeBrowser();
+    @Given("I am not authenticated")
+    public void eraseAuthentication() {
+        webDriverProvider.get().manage().deleteAllCookies();
     }
 
-    @When("I re-open the browser")
-    public void reOpenBroswer() {
-        commonPage.reopenBroswer();
+    @Given("I am authenticated")
+    public void authenticate() {
+        
     }
 }

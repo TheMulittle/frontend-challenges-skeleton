@@ -1,7 +1,9 @@
 package com.waes.assigment.automation.frontend.test.steps;
 
 import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,29 +15,20 @@ public class HomeSteps {
     @Autowired
     HomePage homePage;
 
-    @Given("I navigate to the Home page")
-    @When("I navigate to the Home page")
+    @Given("I am in the Home page")
     public void navigateToHomePage() {
-        homePage.navigateTo();
+        homePage.goToPage()
+            .waitUntilPageIsLoaded();
     }
 
-    @Given("I navigate to the Sign Up page")
-    public void navigateToSignUpPage() {
-        homePage.navigateTo()
-                .clickOnSignUpLink()
-                .waitUntilPageIsLoaded();
+    @When("I click in the Login button")
+    public void login() {
+        homePage.clickOnLoginWithSpotify();
     }
 
-
-    @When("I click in the Sign Up link")
-    public void clickInSignUpLink() {
-        homePage.clickOnSignUpLink()
-                .waitUntilPageIsLoaded();
-    }
-
-    @When("I click in the Login link")
-    public void clickInLoginLink() {
-        homePage.clickOnLoginLink()
-                .waitUntilPageIsLoaded();
+    @Then("I land in the Home page")
+    public void shouldSeeTheLoginPage() {
+        Assert.assertTrue("The current page is not Home page", homePage.isCurrentPage());
+        homePage.waitUntilPageIsLoaded();
     }
 }

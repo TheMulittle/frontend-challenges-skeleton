@@ -14,31 +14,40 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
-public abstract class AbstractComponent {
-
-    @Autowired
-    WebDriverProvider webDriverProvider;
+public abstract class AbstractComponent<T extends AbstractComponent> {
 
     @Value("${DEFAULT_TIMEOUT_IN_SECONDS:10}")
     int DEFAULT_TIMEOUT_IN_SECONDS;
+
+    @Autowired
+    WebDriverProvider webDriverProvider;
+    
+    private static final String BASE_URL = "http://localhost:3000";
 
     public String getCurrentUrl() {
         return webDriverProvider.get().getCurrentUrl();
     }
 
-    public AbstractComponent waitUntilPageIsLoaded() {
-        WebDriverWait wait = new WebDriverWait(webDriverProvider.get(), Duration.ofSeconds(DEFAULT_TIMEOUT_IN_SECONDS));
-        wait.until(ExpectedConditions.visibilityOfAllElements(elementsToWait()));
-        return this;
+    public void navigateToUrl(String url) {
+        webDriverProvider.get().get(url);
     }
 
-    protected void navigateToUrl(String url) {
-        webDriverProvider.get().get(url);
+    public T goToPage() {
+        navigateToUrl(BASE_URL + getPageAddress());
+        return (T) this;
+    }
+
+    public Boolean isCurrentPage() {
+        return getCurrentUrl().equals(BASE_URL + getPageAddress());
     }
 
     protected WebElement click(WebElement element) {
         scrollToElement(element).click();
         return element;
+    }
+
+    protected WebElement clickNthElement(List<WebElement> elements, int n) {
+        return click(elements.get(n - 1));
     }
 
     protected WebElement typeData(WebElement element, String informationToType) {
@@ -77,5 +86,13 @@ public abstract class AbstractComponent {
         return webDriverProvider.get().manage().getCookies();
     }
 
+    public AbstractComponent waitUntilPageIsLoaded() {
+        WebDriverWait wait = new WebDriverWait(webDriverProvider.get(), Duration.ofSeconds(DEFAULT_TIMEOUT_IN_SECONDS));
+        wait.until(ExpectedConditions.visibilityOfAllElements(elementsToWait()));
+        return this;
+    }
+
     protected abstract List<WebElement> elementsToWait();
+
+    protected abstract String getPageAddress();
 }

@@ -32,5 +32,4 @@ public class ProjectConfiguration {
     public WebDriverScreenshotOnFailure screenshotOnFailure() {
         return new WebDriverScreenshotOnFailure(webDriverProvider());
     }
-
 }

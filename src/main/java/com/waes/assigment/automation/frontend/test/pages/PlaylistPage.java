@@ -6,34 +6,30 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.waes.assigment.automation.frontend.configuration.PageObject.PageObject;
 import com.waes.assigment.automation.frontend.test.AbstractComponent;
 
 @PageObject
-public class HomePage extends AbstractComponent<HomePage> {
-    public static final String PAGE_URL = "";
+public class PlaylistPage extends AbstractComponent<PlaylistPage> {
 
-    @Autowired
-    PlaylistPage playlistPage;
+    public static final String PAGE_URL = "/playlist";
 
-    @FindBy(linkText = "LOGIN WITH SPOTIFY")
-    private WebElement loginWithSpotifyButton;
+    @FindBy(css = ".SpotifyButton")
+    private WebElement reorderButton;
 
-    public HomePage clickOnLoginWithSpotify() {
-        click(loginWithSpotifyButton);
+    @FindBy(css = ".Tile")
+    private List<WebElement> playlists;
+
+    public PlaylistPage clickNthTile(int n) {
+        clickNthElement(playlists, n);
         return this;
-    }
-
-    public PlaylistPage playlistPage() {
-        return playlistPage;
     }
 
     @Override
     protected List<WebElement> elementsToWait() {
         List<WebElement> elementToWait = new ArrayList<>();
-        elementToWait.add(loginWithSpotifyButton);
+        elementToWait.add(reorderButton);
         return elementToWait;
     }
 
