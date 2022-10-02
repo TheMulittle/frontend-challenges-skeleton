@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.test.steps;
+package com.mulittle.skeleton.frontend.test.steps;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.web.selenium.WebDriverProvider;

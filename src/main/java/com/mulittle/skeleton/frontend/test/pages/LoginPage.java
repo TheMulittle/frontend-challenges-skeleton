@@ -1,15 +1,15 @@
-package com.waes.assigment.automation.frontend.test.pages;
+package com.mulittle.skeleton.frontend.test.pages;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.waes.assigment.automation.frontend.configuration.PageObject.PageObject;
-import com.waes.assigment.automation.frontend.test.AbstractComponent;
+import com.mulittle.skeleton.frontend.configuration.PageObject.PageObject;
+import com.mulittle.skeleton.frontend.test.AbstractComponent;
 
 @PageObject
 public class LoginPage extends AbstractComponent<LoginPage> {
@@ -23,11 +23,15 @@ public class LoginPage extends AbstractComponent<LoginPage> {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    @Autowired
-    HomePage homePage;
+    private final HomePage homePage;
 
-    @Autowired
-    PlaylistPage playlistPage;
+    private final PlaylistPage playlistPage;
+
+    public LoginPage(WebDriverProvider webDriverProvider, HomePage homePage, PlaylistPage playlistPage) {
+        super(webDriverProvider, "");
+        this.homePage = homePage;
+        this.playlistPage = playlistPage;
+    }
 
     public LoginPage login(String user, String password) {
         return this.typeUser(user)
@@ -63,10 +67,5 @@ public class LoginPage extends AbstractComponent<LoginPage> {
         List<WebElement> elementToWait = new ArrayList<>();
         elementToWait.add(loginButton);
         return elementToWait;
-    }
-
-    @Override
-    protected String getPageAddress() {
-        return "";
     }
 }

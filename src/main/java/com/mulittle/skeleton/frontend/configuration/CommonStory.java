@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.configuration;
+package com.mulittle.skeleton.frontend.configuration;
 
 import org.jbehave.core.io.StoryFinder;
 import org.springframework.context.ApplicationContext;

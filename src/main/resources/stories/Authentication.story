@@ -10,7 +10,7 @@ Scenario: User is able to log in using Spotify
 Given I am not authenticated
 And I am in the Home page
 When I click in the Login button
-And I login with user 'democratic.test.user@gmail.com' and its password
+And I login with an 'owner' user and its password
 Then I land in the Playlist page
 
 Scenario: User is able to go to Login page if they are already logged in

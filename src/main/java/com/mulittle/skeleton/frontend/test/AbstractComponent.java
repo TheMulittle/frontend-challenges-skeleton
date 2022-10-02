@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.test;
+package com.mulittle.skeleton.frontend.test;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.Cookie;
@@ -8,7 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
+import com.mulittle.skeleton.frontend.configuration.PageObject.Constants;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,13 +17,19 @@ import java.util.Set;
 
 public abstract class AbstractComponent<T extends AbstractComponent> {
 
-    @Value("${DEFAULT_TIMEOUT_IN_SECONDS:10}")
-    int DEFAULT_TIMEOUT_IN_SECONDS;
+    private static final int DEFAULT_TIMEOUT_IN_SECONDS = 10;
+
+    private final String BASE_URL = Constants.BASE_URL;
+    
+    private final WebDriverProvider webDriverProvider;
+
+    protected final String PAGE_URL;
 
     @Autowired
-    WebDriverProvider webDriverProvider;
-    
-    private static final String BASE_URL = "http://localhost:3000";
+    public AbstractComponent(WebDriverProvider webDriverProvider, String pageUrl) {
+        this.webDriverProvider = webDriverProvider; 
+        this.PAGE_URL = pageUrl;              
+    }
 
     public String getCurrentUrl() {
         return webDriverProvider.get().getCurrentUrl();
@@ -32,13 +39,16 @@ public abstract class AbstractComponent<T extends AbstractComponent> {
         webDriverProvider.get().get(url);
     }
 
+    protected String getAbsolutePageUrl() {
+        return BASE_URL + PAGE_URL;
+    }
     public T goToPage() {
-        navigateToUrl(BASE_URL + getPageAddress());
+        navigateToUrl(getAbsolutePageUrl());
         return (T) this;
     }
 
     public Boolean isCurrentPage() {
-        return getCurrentUrl().equals(BASE_URL + getPageAddress());
+        return getCurrentUrl().equals(getAbsolutePageUrl());
     }
 
     protected WebElement click(WebElement element) {
@@ -93,6 +103,4 @@ public abstract class AbstractComponent<T extends AbstractComponent> {
     }
 
     protected abstract List<WebElement> elementsToWait();
-
-    protected abstract String getPageAddress();
 }

@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.test.steps;
+package com.mulittle.skeleton.frontend.test.steps;
 
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.waes.assigment.automation.frontend.test.pages.PlaylistPage;
+import com.mulittle.skeleton.frontend.test.pages.PlaylistPage;
 
 @Component
 public class PlaylistSteps {

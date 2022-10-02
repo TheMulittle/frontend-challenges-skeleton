@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.lifecycles;
+package com.mulittle.skeleton.frontend.lifecycles;
 
 import org.jbehave.core.annotations.AfterStory;
 import org.jbehave.core.annotations.BeforeStory;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.waes.assigment.automation.frontend.configuration.PageObject.PageObjectBeanPostProcessor;
+import com.mulittle.skeleton.frontend.configuration.PageObject.PageObjectBeanPostProcessor;
 
 @Component
 public class BrowserLifeCycle {

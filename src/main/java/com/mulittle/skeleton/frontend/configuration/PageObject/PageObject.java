@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.configuration.PageObject;
+package com.mulittle.skeleton.frontend.configuration.PageObject;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.configuration;
+package com.mulittle.skeleton.frontend.configuration;
 
 import org.jbehave.web.selenium.PropertyWebDriverProvider;
 import org.jbehave.web.selenium.WebDriverProvider;
@@ -11,7 +11,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Configuration
-@ComponentScan({"com.waes.assigment.automation.frontend"})
+@ComponentScan({"com.mulittle.skeleton.frontend"})
 public class ProjectConfiguration {
 
     @Bean

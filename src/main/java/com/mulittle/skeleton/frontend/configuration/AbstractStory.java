@@ -1,4 +1,4 @@
-package com.waes.assigment.automation.frontend.configuration;
+package com.mulittle.skeleton.frontend.configuration;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;

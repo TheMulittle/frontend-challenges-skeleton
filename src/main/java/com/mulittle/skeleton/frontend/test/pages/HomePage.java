@@ -1,25 +1,30 @@
-package com.waes.assigment.automation.frontend.test.pages;
+package com.mulittle.skeleton.frontend.test.pages;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.waes.assigment.automation.frontend.configuration.PageObject.PageObject;
-import com.waes.assigment.automation.frontend.test.AbstractComponent;
+import com.mulittle.skeleton.frontend.configuration.PageObject.PageObject;
+import com.mulittle.skeleton.frontend.test.AbstractComponent;
 
 @PageObject
 public class HomePage extends AbstractComponent<HomePage> {
-    public static final String PAGE_URL = "";
 
-    @Autowired
     PlaylistPage playlistPage;
 
     @FindBy(linkText = "LOGIN WITH SPOTIFY")
     private WebElement loginWithSpotifyButton;
+
+    @Autowired
+    public HomePage(WebDriverProvider webDriverProvider, PlaylistPage playlistPage) {
+        super(webDriverProvider, "");
+        this.playlistPage = playlistPage;
+    }
 
     public HomePage clickOnLoginWithSpotify() {
         click(loginWithSpotifyButton);
@@ -35,10 +40,5 @@ public class HomePage extends AbstractComponent<HomePage> {
         List<WebElement> elementToWait = new ArrayList<>();
         elementToWait.add(loginWithSpotifyButton);
         return elementToWait;
-    }
-
-    @Override
-    protected String getPageAddress() {
-        return PAGE_URL;
     }
 }
