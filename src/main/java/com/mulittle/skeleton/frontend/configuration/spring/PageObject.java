@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.configuration.PageObject;
+package com.mulittle.skeleton.frontend.configuration.spring;
 
 import org.springframework.stereotype.Component;
 

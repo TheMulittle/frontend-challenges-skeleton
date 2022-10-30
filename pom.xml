@@ -10,7 +10,7 @@
 
     <properties>
         <selenium.version>4.4.0</selenium.version>
-        <jbehave.selenium.version>3.6-beta-2</jbehave.selenium.version>
+        <jbehave.selenium.version>3.5.5</jbehave.selenium.version>
         <jbehave.core.version>4.8.3</jbehave.core.version>
         <jbehave.selenium.version>3.5.5</jbehave.selenium.version>
         <jbehave.spring.version>4.8.3</jbehave.spring.version>
@@ -147,7 +147,7 @@
                         <phase>integration-test</phase>
                         <configuration>
                             <includes>
-                                <include>**/CommonStory.java</include>
+                                <include>**/AllStories.java</include>
                             </includes>
                             <systemProperties>
                                 <property>

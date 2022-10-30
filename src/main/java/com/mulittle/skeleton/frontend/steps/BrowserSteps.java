@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.test.steps;
+package com.mulittle.skeleton.frontend.steps;
 
 import org.jbehave.core.annotations.Given;
 import org.jbehave.web.selenium.WebDriverProvider;

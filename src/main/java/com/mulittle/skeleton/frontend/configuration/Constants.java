@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.configuration.PageObject;
+package com.mulittle.skeleton.frontend.configuration;
 
 public class Constants {
   public static final String BASE_URL;

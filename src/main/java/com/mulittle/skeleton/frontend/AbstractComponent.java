@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.test;
+package com.mulittle.skeleton.frontend;
 
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.Cookie;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.mulittle.skeleton.frontend.configuration.PageObject.Constants;
+import com.mulittle.skeleton.frontend.configuration.Constants;
 
 import java.time.Duration;
 import java.util.List;

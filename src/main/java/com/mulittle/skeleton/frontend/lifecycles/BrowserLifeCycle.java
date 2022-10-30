@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mulittle.skeleton.frontend.configuration.PageObject.PageObjectBeanPostProcessor;
+import com.mulittle.skeleton.frontend.configuration.spring.PageObjectBeanPostProcessor;
 
 @Component
 public class BrowserLifeCycle {

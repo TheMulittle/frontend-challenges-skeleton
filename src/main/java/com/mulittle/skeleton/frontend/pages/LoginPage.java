@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.test.pages;
+package com.mulittle.skeleton.frontend.pages;
 
 
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.mulittle.skeleton.frontend.configuration.PageObject.PageObject;
-import com.mulittle.skeleton.frontend.test.AbstractComponent;
+import com.mulittle.skeleton.frontend.AbstractComponent;
+import com.mulittle.skeleton.frontend.configuration.spring.PageObject;
 
 @PageObject
 public class LoginPage extends AbstractComponent<LoginPage> {

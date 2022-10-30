@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.configuration;
+package com.mulittle.skeleton.frontend.configuration.spring;
 
 import org.jbehave.web.selenium.PropertyWebDriverProvider;
 import org.jbehave.web.selenium.WebDriverProvider;

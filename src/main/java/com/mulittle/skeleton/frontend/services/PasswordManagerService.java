@@ -1,6 +1,6 @@
-package com.mulittle.skeleton.frontend.test;
+package com.mulittle.skeleton.frontend.services;
 
-public class PasswordManager {
+public class PasswordManagerService {
 
   private static final String userTypeTemplate = "playlist.%s.%s";
 

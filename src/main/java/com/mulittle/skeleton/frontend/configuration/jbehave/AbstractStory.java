@@ -1,4 +1,4 @@
-package com.mulittle.skeleton.frontend.configuration;
+package com.mulittle.skeleton.frontend.configuration.jbehave;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -20,8 +20,7 @@ public abstract class AbstractStory extends JUnitStories {
                             .doGenerateViewAfterStories(true)
                             .doIgnoreFailureInStories(true)
                             .doIgnoreFailureInView(false)
-                            .doVerboseFailures(true)
-                            .useStoryTimeoutInSecs(60);
+                            .doVerboseFailures(true);
     }
 
     @Override
